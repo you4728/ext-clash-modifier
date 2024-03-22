@@ -37,10 +37,16 @@ export default {
     let appendObj = yaml.load(template.append);
     configObj = Object.assign(configObj, appendObj);
 
+    //loadReg
+    let loadRegObj = yaml.load(template.loadReg);
+
     // replace proxy names
     let proxyName = [];
     configObj["proxies"].forEach((proxyElem) => {
-      proxyName.push(proxyElem["name"]);
+      let i = proxyElem["name"].search(loadRegObj);
+      if (i >= 0) {
+        proxyName.push(proxyElem["name"]);
+      }  
     });
 
     configObj["proxy-groups"].forEach((_, index) => {
