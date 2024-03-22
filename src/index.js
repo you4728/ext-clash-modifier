@@ -53,11 +53,8 @@ export default {
       let groupElem = configObj["proxy-groups"][index];
 
       let j = groupElem["proxies"].indexOf("_PROXY_NAME");
-      if (j > 0) {
-        groupElem["proxies"].splice(index, 1, ...proxyName);
-      }
-      if (j == 0) {
-        groupElem["proxies"].splice(index, 0, ...proxyName);
+      if (j >= 0) {
+        groupElem["proxies"].splice(j, 1, ...proxyName);
       }
     });
 
