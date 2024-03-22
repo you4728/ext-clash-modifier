@@ -45,7 +45,6 @@ proxy-groups:
     interval: 300
     strategy: consistent-hashing
     proxies:
-      - DIRECT
       - _PROXY_NAME
   - name: ⚖️ 负载均衡-轮询
     type: load-balance
@@ -53,7 +52,6 @@ proxy-groups:
     interval: 300
     strategy: round-robin
     proxies:
-      - DIRECT
       - _PROXY_NAME
 
 rules:
