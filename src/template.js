@@ -38,6 +38,18 @@ proxy-groups:
     interval: 86400
     proxies:
       - 🔰 选择节点
+  - name: ⚖️ 负载均衡-散列
+    type: load-balance
+    url: http://www.google.com/generate_204
+    interval: 300
+    strategy: consistent-hashing
+    proxies:[_PROXY_NAME]
+  - name: ⚖️ 负载均衡-轮询
+    type: load-balance
+    url: http://www.google.com/generate_204
+    interval: 300
+    strategy: round-robin
+    proxies:[_PROXY_NAME]
 
 rules:
   - RULE-SET,applications,DIRECT
