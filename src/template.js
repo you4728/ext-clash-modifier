@@ -164,4 +164,4 @@ rule-providers:
 
 `;
 
-export default { remove, append };
+export default { remove, append,loadadd ,loaddel };
