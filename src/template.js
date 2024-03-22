@@ -1,7 +1,6 @@
 // 指定需要在原有配置文件上删除的字段
 const remove = ["proxy-groups", "rules", "rule-providers"];
-const loadadd = ["香港","日本","新加坡","美国"];
-const loaddel = ["试用"];
+const loadReg = "^(?!.*试用).*(美国|日本|新加坡|香港)";
 
 // 指定需要需要追加的 YAML 配置，注意缩进
 // 在数组中，使用 `_PROXY_NAME` 指代所有的 Proxy Name
@@ -164,4 +163,4 @@ rule-providers:
 
 `;
 
-export default { remove, append,loadadd ,loaddel };
+export default { remove, append,loadReg };
