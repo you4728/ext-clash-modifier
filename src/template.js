@@ -58,7 +58,7 @@ proxy-groups:
     url: http://www.google.com/generate_204
     interval: 300
     proxies:
-      - _PROXY_NAME      
+      - _PROXY_NAME 
 
 rules:
   - RULE-SET,applications,DIRECT
