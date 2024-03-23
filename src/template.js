@@ -53,6 +53,12 @@ proxy-groups:
     strategy: round-robin
     proxies:
       - _PROXY_NAME
+  - name: ⚖️ 故障切换
+    type: fallback
+    url: http://www.google.com/generate_204
+    interval: 300
+    proxies:
+      - _PROXY_NAME      
 
 rules:
   - RULE-SET,applications,DIRECT
