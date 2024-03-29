@@ -1,7 +1,7 @@
 // 指定需要在原有配置文件上删除的字段
 const remove = ["proxy-groups", "rules", "rule-providers"];
 const loadReg = "^(?!.*试用).*(美国|日本|新加坡|香港)";
-const ISPReg = "^(?!.*试用).*(专线|IPLC)";
+const IPLCReg = "^(?!.*试用).*(专线|IPLC|CN2)";
 
 // 指定需要需要追加的 YAML 配置，注意缩进
 // 在数组中，使用 `_PROXY_NAME` 指代所有的 Proxy Name
@@ -65,7 +65,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 86400
     proxies:
-      - _PROXY_NAME      
+      - _IPLC_NAME      
 
 rules:
   - RULE-SET,applications,DIRECT
@@ -176,4 +176,4 @@ rule-providers:
 
 `;
 
-export default { remove, append,loadReg };
+export default { remove, append,loadReg,IPLCReg};
