@@ -58,7 +58,7 @@ export default {
     configObj["proxies"].forEach((proxyElem) => {
       let i = proxyElem["name"].search(IPLCRegObj);
       if (i >= 0) {
-        ISPproxyName.push(proxyElem["name"]);
+        IPLCproxyName.push(proxyElem["name"]);
       }  
     });    
 
