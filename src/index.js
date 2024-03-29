@@ -69,9 +69,9 @@ export default {
       if (j >= 0) {
         groupElem["proxies"].splice(j, 1, ...proxyName);
       }
-      let j = groupElem["proxies"].indexOf("_IPLC_NAME");
-      if (j >= 0) {
-        groupElem["proxies"].splice(j, 1, ...IPLCproxyName);
+      let k = groupElem["proxies"].indexOf("_IPLC_NAME");
+      if (k >= 0) {
+        groupElem["proxies"].splice(k, 1, ...IPLCproxyName);
       }      
     });
 
