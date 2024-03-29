@@ -40,6 +40,10 @@ export default {
     //loadReg
     let loadRegObj = yaml.load(template.loadReg);
 
+    //ISPReg
+    let IPLCRegObj = yaml.load(template.IPLCReg);
+  
+
     // replace proxy names
     let proxyName = [];
     configObj["proxies"].forEach((proxyElem) => {
@@ -49,6 +53,15 @@ export default {
       }  
     });
 
+    // replace IPEL proxy names
+    let IPLCproxyName = [];
+    configObj["proxies"].forEach((proxyElem) => {
+      let i = proxyElem["name"].search(IPLCRegObj);
+      if (i >= 0) {
+        ISPproxyName.push(proxyElem["name"]);
+      }  
+    });    
+
     configObj["proxy-groups"].forEach((_, index) => {
       let groupElem = configObj["proxy-groups"][index];
 
@@ -56,6 +69,10 @@ export default {
       if (j >= 0) {
         groupElem["proxies"].splice(j, 1, ...proxyName);
       }
+      let j = groupElem["proxies"].indexOf("_IPLC_NAME");
+      if (j >= 0) {
+        groupElem["proxies"].splice(j, 1, ...IPLCproxyName);
+      }      
     });
 
     // replace rule provider proxy
