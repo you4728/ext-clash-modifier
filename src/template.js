@@ -60,6 +60,12 @@ proxy-groups:
     interval: 300
     proxies:
       - _PROXY_NAME
+  - name: ⚖️ 自动测速
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 86400
+    proxies:
+      - _PROXY_NAME      
 
 rules:
   - RULE-SET,applications,DIRECT
