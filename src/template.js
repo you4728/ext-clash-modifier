@@ -15,7 +15,7 @@ proxy-groups:
       - 绕过大陆丨白名单(Whitelist)
   - name: 🔰 选择节点
     type: select
-    proxies: [DIRECT, _PROXY_NAME]
+    proxies: [DIRECT, _PROXY_NAME,⚖️ 负载均衡-散列,⚖️ 负载均衡-轮询,⚖️ 自动测速]
   - name: 🛑 广告拦截
     type: select
     proxies:
