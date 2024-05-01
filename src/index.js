@@ -42,6 +42,9 @@ export default {
 
     //ISPReg
     let IPLCRegObj = yaml.load(template.IPLCReg);
+
+    //SSRReg
+    let SSRRegObj = yaml.load(template.SSRReg);
   
 
     // replace proxy names
@@ -62,6 +65,16 @@ export default {
       }  
     });    
 
+    // replace SSR proxy names
+    let SSRproxyName = [];
+    configObj["proxies"].forEach((proxyElem) => {
+      let i = proxyElem["name"].search(SSRRegObj);
+      if (i >= 0) {
+        SSRproxyName.push(proxyElem["name"]);
+      }  
+    });    
+
+    
     configObj["proxy-groups"].forEach((_, index) => {
       let groupElem = configObj["proxy-groups"][index];
 
@@ -72,7 +85,11 @@ export default {
       let k = groupElem["proxies"].indexOf("_IPLC_NAME");
       if (k >= 0) {
         groupElem["proxies"].splice(k, 1, ...IPLCproxyName);
-      }      
+      }    
+      let m = groupElem["proxies"].indexOf("_SSR_NAME");
+      if (m >= 0) {
+        groupElem["proxies"].splice(m, 1, ...SSRproxyName);
+      }        
     });
 
     // replace rule provider proxy
