@@ -183,4 +183,4 @@ rule-providers:
 
 `;
 
-export default { remove, append,loadReg,IPLCReg};
+export default { remove, append,loadReg,IPLCReg,SSRReg};
