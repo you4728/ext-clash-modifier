@@ -61,10 +61,10 @@ proxy-groups:
     interval: 300
     proxies:
       - _PROXY_NAME
-  - name: ⚖️ SSR测速
+  - name: ⚖️ SSR轮询
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 86400
+    interval: 300
     proxies:
       - _SSR_NAME            
   - name: ⚖️ 自动测速
