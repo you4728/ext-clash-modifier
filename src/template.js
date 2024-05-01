@@ -2,6 +2,7 @@
 const remove = ["proxy-groups", "rules", "rule-providers"];
 const loadReg = "^(?!.*试用).*(美国|日本|新加坡|香港)";
 const IPLCReg = "^(?!.*试用).*(专线|IPLC|CN2)";
+const SSR = "^(?!.*az200).*(SSR)";
 
 // 指定需要需要追加的 YAML 配置，注意缩进
 // 在数组中，使用 `_PROXY_NAME` 指代所有的 Proxy Name
@@ -60,6 +61,12 @@ proxy-groups:
     interval: 300
     proxies:
       - _PROXY_NAME
+  - name: ⚖️ SSR测速
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 86400
+    proxies:
+      - _SSR_NAME            
   - name: ⚖️ 自动测速
     type: url-test
     url: http://www.gstatic.com/generate_204
