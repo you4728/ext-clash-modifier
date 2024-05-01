@@ -62,9 +62,10 @@ proxy-groups:
     proxies:
       - _PROXY_NAME
   - name: ⚖️ SSR轮询
-    type: url-test
+    type: load-balance
     url: http://www.gstatic.com/generate_204
     interval: 300
+    strategy: round-robin
     proxies:
       - _SSR_NAME            
   - name: ⚖️ 自动测速
