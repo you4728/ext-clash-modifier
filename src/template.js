@@ -9,38 +9,9 @@ const SSRReg = "^(?!.*试用).*(west|TL)";
 // 在 Rule Provider 中的 URL 中，使用 `_PROVIDER_PROXY|` 指代规则文件代理 URL
 const append = `
 proxy-groups:
-  - name: 🔯 代理模式
-    type: select
-    proxies:
-      - 绕过大陆丨黑名单(GFWlist)
-      - 绕过大陆丨白名单(Whitelist)
   - name: 🔰 选择节点
     type: select
     proxies: [DIRECT, _PROXY_NAME,⚖️ 负载均衡-散列,⚖️ 负载均衡-轮询,⚖️ 自动测速]
-  - name: 🛑 广告拦截
-    type: select
-    proxies:
-      - DIRECT
-      - REJECT
-      - PROXY
-  - name: 绕过大陆丨黑名单(GFWlist)
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 86400
-    proxies:
-      - DIRECT
-  - name: 绕过大陆丨白名单(Whitelist)
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 86400
-    proxies:
-      - PROXY
-  - name: PROXY
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 86400
-    proxies:
-      - 🔰 选择节点
   - name: ⚖️ 负载均衡-散列
     type: load-balance
     url: http://www.google.com/generate_204
@@ -55,12 +26,6 @@ proxy-groups:
     strategy: round-robin
     proxies:
       - _PROXY_NAME
-  - name: ⚖️ 故障切换
-    type: fallback
-    url: http://www.google.com/generate_204
-    interval: 300
-    proxies:
-      - _PROXY_NAME
   - name: ⚖️ SSR轮询
     type: load-balance
     url: http://www.gstatic.com/generate_204
@@ -68,33 +33,16 @@ proxy-groups:
     strategy: round-robin
     proxies:
       - _SSR_NAME            
-  - name: ⚖️ 自动测速
-    type: url-test
+  - name: ⚖️ 专线轮询
+    type: load-balance
     url: http://www.gstatic.com/generate_204
-    interval: 86400
+    interval: 300
+    strategy: round-robin
     proxies:
       - _IPLC_NAME      
 
 rules:
-  - RULE-SET,applications,DIRECT
-  - DOMAIN,clash.razord.top,DIRECT
-  - DOMAIN,yacd.haishan.me,DIRECT
-  - RULE-SET,private,DIRECT
-  - RULE-SET,reject,🛑 广告拦截
-  - RULE-SET,icloud,DIRECT
-  - RULE-SET,apple,DIRECT
-  - RULE-SET,google,DIRECT
-  - RULE-SET,tld-not-cn,PROXY
-  - RULE-SET,gfw,PROXY
-  - RULE-SET,greatfire,PROXY
-  - RULE-SET,telegramcidr,PROXY
-  - RULE-SET,lancidr,DIRECT
-  - RULE-SET,cncidr,DIRECT
-  - GEOIP,,DIRECT
-  - GEOIP,CN,DIRECT
-  - RULE-SET,direct,DIRECT
-  - RULE-SET,proxy,🔯 代理模式
-  - MATCH,🔯 代理模式
+  - MATCH,🔰 选择节点
 
 rule-providers:
   reject:
