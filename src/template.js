@@ -35,7 +35,7 @@ proxy-groups:
       - _SSR_NAME            
   - name: ⚖️ IPLC轮询
     type: load-balance
-    url: http://www.gstatic.com/generate_204
+    url: http://www.apple.com/library/test/success.html
     interval: 7200
     strategy: round-robin
     proxies:
