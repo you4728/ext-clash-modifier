@@ -15,14 +15,25 @@
 1. 安装 [wrangler](https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler)
 
 ```
+apt install npm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+断开重新连接服务器
+nvm install 20
+
+
 npm i -g wrangler
 ```
 
 2. Clone 这个项目，然后在 Repo 中执行
-
+git clone https://github.com/you4728/ext-clash-modifier
+cd ext-clash-modifier/
 ```
 wrangler login
-wrangler publish
+到浏览器登陆获取授权链接
+打开新session
+curl "http://localhost:8976/oauth/callback?code=EeX35mKGvaeZIEKiS5IslGj68yM8FmQTlPYKqhWuYRE"
+登录成功
+wrangler deploy
 ```
 
 3. 绑定你的域名 (。・∀・)ノ
