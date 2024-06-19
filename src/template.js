@@ -35,7 +35,7 @@ proxy-groups:
       - _SSR_NAME            
   - name: ⚖️ IPLC轮询
     type: load-balance
-    url: http://www.google.com/generate_204
+    url: http://www.v2ex.com/generate_204
     interval: 300
     strategy: round-robin
     proxies:
