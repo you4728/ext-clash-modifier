@@ -25,7 +25,7 @@ npm i -g wrangler
 ```
 
 2. Clone 这个项目，然后在 Repo 中执行
-git clone https://github.com/you4728/ext-clash-modifier
+git clone https://github.com/Zhousiru/ext-clash-modifier.git
 cd ext-clash-modifier/
 ```
 wrangler login
