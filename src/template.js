@@ -15,28 +15,28 @@ proxy-groups:
   - name: ⚖️ 负载均衡-散列
     type: load-balance
     url: http://www.google.com/generate_204
-    interval: 300
+    interval: 7200
     strategy: consistent-hashing
     proxies:
       - _PROXY_NAME
   - name: ⚖️ 负载均衡-轮询
     type: load-balance
     url: http://www.google.com/generate_204
-    interval: 300
+    interval: 7200
     strategy: round-robin
     proxies:
       - _PROXY_NAME
   - name: ⚖️ SSR轮询
     type: load-balance
     url: http://www.gstatic.com/generate_204
-    interval: 300
+    interval: 7200
     strategy: round-robin
     proxies:
       - _SSR_NAME            
   - name: ⚖️ 专线轮询
     type: load-balance
     url: http://www.gstatic.com/generate_204
-    interval: 300
+    interval: 7200
     strategy: round-robin
     proxies:
       - _IPLC_NAME      
