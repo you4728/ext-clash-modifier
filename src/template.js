@@ -33,7 +33,7 @@ proxy-groups:
     strategy: round-robin
     proxies:
       - _SSR_NAME            
-  - name: ⚖️ 专线轮询
+  - name: ⚖️ IPLC轮询
     type: load-balance
     url: http://www.gstatic.com/generate_204
     interval: 7200
