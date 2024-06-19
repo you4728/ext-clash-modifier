@@ -37,6 +37,7 @@ proxy-groups:
     type: load-balance
     url: http://www.v2ex.com/generate_204
     interval: 300
+    tolerance: 150 # 允许的偏差，节点之间延迟差小于该值不切换 非必要
     strategy: round-robin
     proxies:
       - _IPLC_NAME      
