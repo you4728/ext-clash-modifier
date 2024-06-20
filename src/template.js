@@ -15,21 +15,21 @@ proxy-groups:
   - name: ⚖️ 负载均衡-散列
     type: load-balance
     url: http://www.google.com/generate_204
-    interval: 300
+    interval: 7200
     strategy: consistent-hashing
     proxies:
       - _PROXY_NAME
   - name: ⚖️ 负载均衡-轮询
     type: load-balance
     url: http://www.google.com/generate_204
-    interval: 300
+    interval: 7200
     strategy: round-robin
     proxies:
       - _PROXY_NAME
   - name: ⚖️ SSR轮询
     type: load-balance
     url: http://www.google.com/generate_204
-    interval: 300
+    interval: 7200
     tolerance: 150 # 允许的偏差，节点之间延迟差小于该值不切换 非必要
     strategy: round-robin
     proxies:
@@ -37,7 +37,7 @@ proxy-groups:
   - name: ⚖️ IPLC轮询
     type: load-balance
     url: http://www.google.com/generate_204
-    interval: 300
+    interval: 7200
     tolerance: 150 # 允许的偏差，节点之间延迟差小于该值不切换 非必要
     strategy: round-robin
     proxies:
