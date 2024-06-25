@@ -44,8 +44,8 @@ proxy-groups:
       - _IPLC_NAME      
 
 rules:
-  - SRC-IP-CIDR,10.0.1.236/32,🇺🇸 美国 2081,no-resolve
   - MATCH,🔰 选择节点
+  - SRC-IP-CIDR,10.0.1.236/32,🇺🇸 美国 2081,no-resolve
 
 rule-providers:
   reject:
