@@ -3,6 +3,7 @@ const remove = ["proxy-groups", "rules", "rule-providers"];
 const loadReg = "^(?!.*试用).*(美国|日本|新加坡|香港)";
 const IPLCReg = "^(?!.*试用).*(专线|IPLC|CN2)";
 const SSRReg = "^(?!.*试用).*(SSR)";
+const ipv6Reg = "^(?!.*试用).*(SSR)";
 
 // 指定需要需要追加的 YAML 配置，注意缩进
 // 在数组中，使用 `_PROXY_NAME` 指代所有的 Proxy Name
@@ -33,7 +34,15 @@ proxy-groups:
     tolerance: 150 # 允许的偏差，节点之间延迟差小于该值不切换 非必要
     strategy: round-robin
     proxies:
-      - _SSR_NAME            
+      - _SSR_NAME
+  - name: ⚖️ ipv6轮询
+    type: load-balance
+    url: http://www.google.com/generate_204
+    interval: 86400
+    tolerance: 150 # 允许的偏差，节点之间延迟差小于该值不切换 非必要
+    strategy: round-robin
+    proxies:
+      - _ipv6_NAME      
   - name: ⚖️ IPLC轮询
     type: load-balance
     url: http://www.google.com/generate_204
@@ -136,4 +145,4 @@ rule-providers:
 
 `;
 
-export default { remove, append,loadReg,IPLCReg,SSRReg};
+export default { remove, append,loadReg,IPLCReg,SSRReg,ipv6Reg};
