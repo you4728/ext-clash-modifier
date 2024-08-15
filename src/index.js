@@ -100,9 +100,9 @@ export default {
       if (m >= 0) {
         groupElem["proxies"].splice(m, 1, ...SSRproxyName);
       }     
-      let m = groupElem["proxies"].indexOf("_ipv6_NAME");
-      if (m >= 0) {
-        groupElem["proxies"].splice(m, 1, ...ipv6proxyName);
+      let n = groupElem["proxies"].indexOf("_ipv6_NAME");
+      if (n >= 0) {
+        groupElem["proxies"].splice(n, 1, ...ipv6proxyName);
       }         
     });
 
