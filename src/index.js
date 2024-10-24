@@ -91,7 +91,7 @@ export default {
     // replace US proxy names
     let USproxyName = [];
     configObj["proxies"].forEach((proxyElem) => {
-      let i = proxyElem["name"].search(USReg);
+      let i = proxyElem["name"].search(USRegObj);
       if (i >= 0) {
         USproxyName.push(proxyElem["name"]);
       }  
