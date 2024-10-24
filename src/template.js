@@ -3,9 +3,10 @@ const remove = ["proxy-groups", "rules", "rule-providers"];
 const loadReg = "^(?!.*试用).*(美国|日本|新加坡|香港)";
 const IPLCReg = "^(?!.*试用).*(专线|IPLC|CN2)";
 const SSRReg = "^(?!.*试用).*(SSR)";
-const ipv6Reg = "^(?!.*试用).*(SSR)";
+const ipv6Reg = "^(?!.*试用).*(ipv6)";
+const USReg = "^(?!.*试用).*(🇺🇸 美国 )";
 
-// 指定需要需要追加的 YAML 配置，注意缩进
+// 指定需要需要追加的 YAML 配置，注意缩进  🇺🇸 美国 20
 // 在数组中，使用 `_PROXY_NAME` 指代所有的 Proxy Name
 // 在 Rule Provider 中的 URL 中，使用 `_PROVIDER_PROXY|` 指代规则文件代理 URL
 const append = `
@@ -51,7 +52,14 @@ proxy-groups:
     strategy: round-robin
     proxies:
       - _IPLC_NAME      
-
+  - name: ⚖️ US轮询
+    type: load-balance
+    url: http://www.google.com/generate_204
+    interval: 86400
+    tolerance: 150 # 允许的偏差，节点之间延迟差小于该值不切换 非必要
+    strategy: round-robin
+    proxies:
+      - _US_NAME 
 rules:
   - SRC-IP-CIDR,10.0.1.236/32,🇺🇸 美国 2081,no-resolve
   - MATCH,🔰 选择节点
@@ -145,4 +153,4 @@ rule-providers:
 
 `;
 
-export default { remove, append,loadReg,IPLCReg,SSRReg,ipv6Reg};
+export default { remove, append,loadReg,IPLCReg,SSRReg,ipv6Reg,USReg};
