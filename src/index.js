@@ -49,6 +49,9 @@ export default {
     //ipv6Reg
     let ipv6RegObj = yaml.load(template.ipv6Reg);  
 
+    //USReg
+    let USRegObj = yaml.load(template.USReg);     
+
     // replace proxy names
     let proxyName = [];
     configObj["proxies"].forEach((proxyElem) => {
@@ -83,7 +86,16 @@ export default {
       if (i >= 0) {
         ipv6proxyName.push(proxyElem["name"]);
       }  
-    });    
+    });  
+
+    // replace US proxy names
+    let USproxyName = [];
+    configObj["proxies"].forEach((proxyElem) => {
+      let i = proxyElem["name"].search(USReg);
+      if (i >= 0) {
+        USproxyName.push(proxyElem["name"]);
+      }  
+    });      
     
     configObj["proxy-groups"].forEach((_, index) => {
       let groupElem = configObj["proxy-groups"][index];
@@ -103,7 +115,11 @@ export default {
       let n = groupElem["proxies"].indexOf("_ipv6_NAME");
       if (n >= 0) {
         groupElem["proxies"].splice(n, 1, ...ipv6proxyName);
-      }         
+      }   
+      let p = groupElem["proxies"].indexOf("_US_NAME");
+      if (p >= 0) {
+        groupElem["proxies"].splice(p, 1, ...USproxyName);
+      }        
     });
 
     // replace rule provider proxy
