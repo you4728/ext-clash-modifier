@@ -11,7 +11,7 @@ const USReg = "^(?!.*试用).*(🇺🇸 美国 )";
 // 在 Rule Provider 中的 URL 中，使用 `_PROVIDER_PROXY|` 指代规则文件代理 URL
 const append = `
 proxy-groups:
-  - name: 🔰 节点选择
+  - name: 🚀 节点选择
     type: select
     proxies: [DIRECT, _PROXY_NAME,⚖️ 负载均衡-散列,⚖️ 负载均衡-轮询,⚖️ SSR轮询,⚖️ IPLC轮询,⚖️ US轮询]
   - name: ⚖️ 负载均衡-散列
@@ -62,7 +62,7 @@ proxy-groups:
       - _US_NAME 
 rules:
   - SRC-IP-CIDR,10.0.1.236/32,🇺🇸 美国 2081,no-resolve
-  - MATCH,🔰 节点选择
+  - MATCH,🚀 节点选择
 
 
 rule-providers:
