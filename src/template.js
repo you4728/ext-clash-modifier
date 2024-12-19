@@ -62,7 +62,7 @@ proxy-groups:
       - _US_NAME 
 rules:
   - SRC-IP-CIDR,10.0.1.236/32,🇺🇸 美国 2081,no-resolve
-  - MATCH,🔰 选择节点
+  - MATCH,🔰 节点选择
 
 
 rule-providers:
