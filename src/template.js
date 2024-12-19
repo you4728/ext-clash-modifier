@@ -35,15 +35,7 @@ proxy-groups:
     tolerance: 150 # 允许的偏差，节点之间延迟差小于该值不切换 非必要
     strategy: round-robin
     proxies:
-      - _SSR_NAME
-  - name: ⚖️ ipv6轮询
-    type: load-balance
-    url: http://www.google.com/generate_204
-    interval: 86400
-    tolerance: 150 # 允许的偏差，节点之间延迟差小于该值不切换 非必要
-    strategy: round-robin
-    proxies:
-      - _ipv6_NAME      
+      - _SSR_NAME   
   - name: ⚖️ IPLC轮询
     type: load-balance
     url: http://www.google.com/generate_204
