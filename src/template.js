@@ -61,7 +61,9 @@ proxy-groups:
     proxies:
       - _US_NAME 
 rules:
-  - SRC-IP-CIDR,10.0.1.236/32,🇺🇸 美国 2081,no-resolve
+  - PROCESS-NAME,todesk.exe,DIRECT
+  - PROCESS-NAME,Proxifier.exe,DIRECT
+  - PROCESS-NAME,SunloginClient.exe,DIRECT
   - MATCH,🚀 节点选择
 
 
